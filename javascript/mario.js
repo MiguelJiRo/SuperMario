@@ -8,7 +8,6 @@ function add_Mario(Q){
                 x: 50,
                 y: 380,
                 die: false,
-                move: true,
                 hafinalizado: false
             });
             this.add('2d, platformerControls, animation, tween');
@@ -21,7 +20,7 @@ function add_Mario(Q){
         	{
         		this.play('die');
         	}
-        	else if(this.p.move && !this.p.hafinalizado)
+        	else if(!this.p.hafinalizado)
         	{
 	        	// Si Mario supera la distancia del borde inferior
 	        	// vuelve al origen
@@ -52,10 +51,10 @@ function add_Mario(Q){
        	victoria: function()
        	{
        		if(!this.p.hafinalizado){
-       			this.p.hafinalizado = true;       			
+       			this.p.hafinalizado = true;     
+       			Q.state.reset({ coins: 0 });  			
        			Q.audio.stop('music_main.mp3');
-	       		Q.audio.play('music_level_complete.mp3');
-	       		this.p.move = false;
+	       		Q.audio.play('music_level_complete.mp3');	
 	       		Q.stageScene('endGame',1,{
 	       			label:'YOU WIN'
 	       		});
@@ -65,7 +64,10 @@ function add_Mario(Q){
        	muere: function() 
        	{
        		if(!this.p.hafinalizado){
+
+       			console.log("##### ha muerto mario");	
        			this.p.hafinalizado = true;
+       			Q.state.reset({ coins: 0 });
 	       		Q.audio.stop('music_main.mp3');
 	       		Q.audio.play('music_die.mp3');
 	       		this.p.die = true;

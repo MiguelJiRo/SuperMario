@@ -7,10 +7,10 @@ function add_Level(Q){
 		// insertar jugador
 		var player = stage.insert(new Q.Mario());	
 		// insertar enemigos
-		stage.insert(new Q.Goomba({x: 1550,y: 500}));
+		//stage.insert(new Q.Goomba({x: 1550,y: 500}));
 		stage.insert(new Q.Goomba({x: 350,y: 500}));
-		stage.insert(new Q.Bloopa({x: 1200,y: 500}));
-		stage.insert(new Q.Bloopa({x: 900,y: 500}));
+		//stage.insert(new Q.Bloopa({x: 1200,y: 500}));
+		//stage.insert(new Q.Bloopa({x: 900,y: 500}));
 		stage.insert(new Q.Bloopa({x: 150,y: 500}));
 		// otros objetos
 		stage.insert(new Q.Princess());
